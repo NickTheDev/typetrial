@@ -1,0 +1,56 @@
+.navbar {
+  margin-top: 20px;
+  background-color: transparent; }
+
+.navbar-menu {
+  margin-right: 60px; }
+
+.navbar-brand {
+  margin-left: 60px; }
+
+.navbar-item, .nav-data {
+  font-family: League Spartan, sans-serif;
+  font-size: 0.9rem; }
+
+.navbar-item {
+  color: #FFFFFF; }
+
+.nav-data {
+  color: #00FFD4; }
+
+.content {
+  margin-top: 10%; }
+
+.type-prompt, #sentence {
+  font-family: League Spartan, sans-serif;
+  font-size: 1.3rem; }
+
+.type-prompt {
+  color: #00FFD4; }
+
+#sentence {
+  color: #FFFFFF;
+  padding-left: 25px; }
+
+.input-container {
+  width: 500px; }
+
+.typing {
+  font-family: League Spartan, sans-serif;
+  filter: drop-shadow(5px 5px 4px #4444dd);
+  border: none;
+  background-color: #FFFFFF;
+  margin: 20px 0 0;
+  padding: 30px;
+  border-radius: 8px; }
+
+@font-face {
+  font-family: League Spartan, sans-serif;
+  src: url(../fonts/leaguespartan-bold.ttf); }
+html, body {
+  background-color: #4600FF;
+  font-size: 100%;
+  margin: 0;
+  height: 100%; }
+
+/*# sourceMappingURL=app.css.map */
