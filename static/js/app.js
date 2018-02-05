@@ -95,7 +95,7 @@ var callbacks = {
 
                 if (words[data.currentWord] !== data.typedWord) {
                     data.typoIndexes.push(data.currentWord);
-                    data.typoChars += words[data.currentWord].length;
+                    data.typoChars += data.typedWord.length;
                     elements.typos.value++;
                 }
 

@@ -75,7 +75,7 @@ const callbacks = {
                     elements.typos.value = 0;
 
                 } else {
-                    elements.speed.value = Math.round((data.chars - data.typoChars) / 5 * data.timer / (data.timer - elements.remaining.value))
+                    elements.speed.value = Math.round((((data.chars - data.typoChars) / 5) * data.timer) / (data.timer - elements.remaining.value));
                 }
 
             }, 1000)
@@ -96,7 +96,7 @@ const callbacks = {
 
                 if(words[data.currentWord] !== data.typedWord) {
                     data.typoIndexes.push(data.currentWord);
-                    data.typoChars += words[data.currentWord].length;
+                    data.typoChars += data.typedWord.length;
                     elements.typos.value++;
                 }
 
