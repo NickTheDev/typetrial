@@ -68,7 +68,7 @@ var Binding = function () {
         value: function of(id) {
             var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
 
-            return new Binding(value || "", document.getElementById(id));
+            return new Binding(value, document.getElementById(id));
         }
     }]);
 

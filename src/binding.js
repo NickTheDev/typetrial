@@ -52,7 +52,7 @@ class Binding {
      * @returns {Binding} New binding.
      */
     static of(id, value = "") {
-        return new Binding(value || "", document.getElementById(id));
+        return new Binding(value, document.getElementById(id));
     }
 
 }

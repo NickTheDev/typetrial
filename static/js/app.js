@@ -26,7 +26,7 @@ var elements = {
     remaining: Binding.of("remaining", data.timer),
     remainingMobile: Binding.of("remaining-mobile", data.timer),
     speed: Binding.of("speed", 0),
-    typos: Binding.of("typos", 9),
+    typos: Binding.of("typos", 0),
     sentence: Binding.of("sentence", "The quick brown fox jumped over the lazy dog."),
     typing: Binding.of("typing"),
     stats: Binding.of("report-stats"),
