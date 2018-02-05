@@ -13,8 +13,9 @@ class Binding {
      * @param {HTMLElement} target Element to bind to.
      */
     constructor(value, target) {
-        this.data = value;
         this.target = target;
+        this.data = value;
+        this.value = value;
     }
 
     /**

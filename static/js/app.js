@@ -1,33 +1,34 @@
 /**
+ * Represents the the data used store the exam state.
+ *
+ * @type {{timer: number, started: boolean, chars: number, current: number, currentWord: number, typedKey: string, typedWord: string, typoIndexes: Array}}
+ */
+const data = {
+    timer: 120,
+    started: false,
+    chars: 0,
+    current: 0,
+    currentWord: 0,
+    typedKey: " ",
+    typedWord: "",
+    typoIndexes: []
+};
+
+/**
  * Represents the data which will be bound to elements in the view.
  *
- * @type {{remaining: Binding, speed: Binding, typos: Binding, sentence: Binding, typing: Binding}}
+ * @type {{remaining: Binding, speed: Binding, typos: Binding, sentence: Binding, typing: Binding, stats: Binding, report: HTMLElement | null, closeReport: HTMLElement | null}}
  */
 const elements = {
-    remaining: Binding.create(60, "remaining"),
+    remaining: Binding.create(data.timer, "remaining"),
     speed: Binding.create(0, "speed"),
     typos: Binding.create(0, "typos"),
-    sentence: Binding.create("The quick brown fox jumped over the lazy dog.", "sentence"),
+    sentence: Binding.create(sentences[0], "sentence"),
     typing: Binding.create("", "typing"),
     stats: Binding.create("", "report-stats"),
 
     report: document.getElementById("report"),
     closeReport: document.getElementById("report-close")
-};
-
-/**
- * Represents the the data used to run the exam.
- *
- * @type {{started: boolean, words: number, current: number, currentWord: number, typedWord: string, typoIndexes: Array}}
- */
-const data = {
-    lastKey: ' ',
-    started: false,
-    words: 0,
-    current: 0,
-    currentWord: 0,
-    typedWord: "",
-    typoIndexes: []
 };
 
 /**
@@ -47,8 +48,11 @@ const callbacks = {
                     clearInterval(task);
 
                     data.started = false;
+                    data.current = 0;
+                    data.currentWord = 0;
+                    data.typedWord = "";
+                    data.typoIndexes = [];
 
-                    elements.remaining.value = 60;
                     elements.sentence.value = sentences[0];
                     elements.typing.value = "";
                     elements.typing.target.disabled = true;
@@ -57,17 +61,12 @@ const callbacks = {
                     elements.stats.value = elements.speed.value + " wpm with " + elements.typos.value + " typos.";
                     elements.closeReport.onclick = callbacks.reportClose;
 
+                    elements.remaining.value = data.timer;
                     elements.speed.value = 0;
                     elements.typos.value = 0;
 
-                    data.words = 0;
-                    data.current = 0;
-                    data.currentWord = 0;
-                    data.typedWord = "";
-                    data.typoIndexes = [];
-
                 } else {
-                    elements.speed.value = Math.round((data.words- elements.typos.value) * 60 / (60 - elements.remaining.value))
+                    elements.speed.value = Math.round((data.chars / 5 - elements.typos.value) * data.timer / (data.timer - elements.remaining.value))
                 }
 
             }, 1000)
@@ -77,8 +76,8 @@ const callbacks = {
     },
 
     type: event => {
-        if(event.key === ' ') {
-            if(data.lastKey !== ' ') {
+        if(event.key === " ") {
+            if(data.typedKey !== " ") {
                 const words = sentences[data.current].split(" ");
 
                 if(words[data.currentWord] !== data.typedWord) {
@@ -86,7 +85,6 @@ const callbacks = {
                     elements.typos.value++;
                 }
 
-                data.words++;
                 data.typedWord = "";
 
                 if(++data.currentWord === words.length) {
@@ -104,15 +102,15 @@ const callbacks = {
                 highlight();
             }
 
+            data.chars++;
             data.typedWord = data.typedWord.concat(event.key);
         }
 
-        data.lastKey = event.key;
+        data.typedKey = event.key;
     },
 
     reportClose: () => {
         elements.report.classList.remove("is-active");
-
         elements.typing.target.disabled = false;
     }
 };
@@ -131,16 +129,16 @@ function highlight() {
     });
 
     // Insecure, need to find a work around.
-    elements.sentence.target.innerHTML = words.slice(0, data.currentWord).join(" ") + " <a class=\"type-prompt\">" + words[data.currentWord] + "</a> " + words.slice(data.currentWord + 1, words.length).join(" ");
+    elements.sentence.target.innerHTML = words.slice(0, data.currentWord).join(" ") + " <a class=\"sentence-prompt\">" + words[data.currentWord] + "</a> " + words.slice(data.currentWord + 1, words.length).join(" ");
 }
 
 /**
  * Changes the sentence to different one randomly.
  *
- * @returns {number}
+ * @returns {number} Sentence index.
  */
 function changeSentence() {
-    const possible =  Math.floor(Math.random() * (Math.floor(sentences.length -1)));
+    const possible =  Math.floor(Math.random() * (Math.floor(sentences.length - 1)));
 
     data.current = possible !== data.current ? possible : changeSentence();
     elements.sentence.value = sentences[possible];

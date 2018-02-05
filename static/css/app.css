@@ -1,3 +1,29 @@
+@font-face {
+  font-family: League Spartan;
+  src: url("../fonts/leaguespartan-bold.eot");
+  src: url("../fonts/leaguespartan-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/leaguespartan-bold.woff2") format("woff2"), url("../fonts/leaguespartan-bold.woff") format("woff"), url("../fonts/leaguespartan-bold.ttf") format("truetype"), url("../fonts/leaguespartan-bold.svg#league_spartanbold") format("svg"); }
+html {
+  margin: 0;
+  height: 100%;
+  background-color: #4600FF;
+  font-size: 100%; }
+
+.footer, .github-link {
+  font-family: League Spartan, sans-serif;
+  font-size: 0.6rem; }
+
+.footer {
+  opacity: 0.8;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 1%;
+  background-color: transparent;
+  color: #FFFFFF; }
+
+.github-link {
+  color: #00FFD4; }
+
 .navbar {
   margin-top: 1.7%;
   background-color: transparent; }
@@ -18,15 +44,13 @@
 .nav-data {
   color: #00FFD4; }
 
-.middle {
-  margin-top: 10%; }
-
-.type-prompt, .sentence-error, #sentence {
+.sentence-prompt, .sentence-error, #sentence {
   font-family: League Spartan, sans-serif;
   font-size: 1.3rem; }
 
-.type-prompt {
-  color: #00FFD4; }
+.sentence-prompt {
+  color: #00FFD4;
+  margin-top: 10%; }
 
 .sentence-error {
   color: #FF899C; }
@@ -57,15 +81,5 @@
 
 .fast-typing {
   color: #00FFD4; }
-
-@font-face {
-  font-family: League Spartan;
-  src: url("../fonts/leaguespartan-bold.eot");
-  src: url("../fonts/leaguespartan-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/leaguespartan-bold.woff2") format("woff2"), url("../fonts/leaguespartan-bold.woff") format("woff"), url("../fonts/leaguespartan-bold.ttf") format("truetype"), url("../fonts/leaguespartan-bold.svg#league_spartanbold") format("svg"); }
-html, body {
-  background-color: #4600FF;
-  font-size: 100%;
-  margin: 0;
-  height: 100%; }
 
 /*# sourceMappingURL=app.css.map */

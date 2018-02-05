@@ -1,40 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>Typetrial</title>
+    <!-- Metadata -->
 
+    <title>Type Trial</title>
     <meta name="author" content="width=device-width, initial-scale=1">
     <meta name="descriptive" content="Measure your typing skills in a sleek and modern one minute exam.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
 
+    <!-- Resources -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css"/>
     <link rel="stylesheet" href="static/css/app.css"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
 
     <script defer type="text/javascript" src="static/js/binding.js"></script>
     <script defer type="text/javascript" src="static/js/sentences.js"></script>
     <script defer type="text/javascript" src="static/js/app.js"></script>
 
   </head>
-
   <body>
+
+    <!-- Navigation -->
+
     <nav class="navbar" role="navigation">
       <div class="navbar-brand">
         <a href="#" class="navbar-item">typetrial</a>
       </div>
-
       <div class="navbar-menu">
         <div class="navbar-end">
           <div class="navbar-item">
             <a id="remaining" class="nav-data">60</a>&nbsp;seconds remaining
           </div>
-
           <div class="navbar-item">
             <a id="speed" class="nav-data">0</a>&nbsp;wpm
           </div>
-
           <div class="navbar-item">
             <a id="typos" class="nav-data">0</a>&nbsp;typos
           </div>
@@ -42,14 +44,15 @@
       </div>
     </nav>
 
-    <section class="section middle">
+    <!-- Content -->
+
+    <section class="section">
       <div class="container">
-        <div class="type-prompt level">
+        <div class="sentence-prompt level">
           <div class="level-item">
             Type:<a id="sentence">The quick brown fox jumped over the lazy dog.</a>
           </div>
         </div>
-
         <div class="field">
           <div class="control container input-container">
             <input id="typing" class="input typing" type="text" placeholder="Start typing to begin...">
@@ -58,9 +61,10 @@
       </div>
     </section>
 
+    <!-- Report -->
+
     <div id="report" class="modal">
       <div class="modal-background"></div>
-
       <div class="card report-card">
         <div class="card-content">
           <div class="content">
@@ -69,9 +73,17 @@
           </div>
         </div>
       </div>
-
       <button id="report-close" class="modal-close is-large" aria-label="close"></button>
     </div>
 
+    <!-- Footer -->
+
+    <footer class="footer">
+      <div class="level">
+        <p class="level-item has-text-centered">
+          Created with ❤ by <a class="github-link" href="https://github.com/nickthedev">&nbsp;NickTheDev</a>
+        </p>
+      </div>
+    </footer>
   </body>
 </html>

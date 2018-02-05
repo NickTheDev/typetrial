@@ -1,19 +1,50 @@
+// Color palate
+
 $white: #FFFFFF
 $background: #4600FF
 $secondary: #00FFD4
 $error: #FF899C
 
+// Typography
+
 $font: League Spartan, sans-serif
-$fontSrc: '/static/fonts/leaguespartan-bold.'
-@import nav, content, report
+$fontSrc: '../fonts/leaguespartan-bold.'
 
 @font-face
-  font-family: $font
+  font-family: League Spartan
   src: url($fontSrc + 'eot')
   src: url($fontSrc + 'eot?#iefix') format('embedded-opentype'), url($fontSrc + 'woff2') format('woff2'), url($fontSrc + 'woff') format('woff'), url($fontSrc + 'ttf') format('truetype'), url($fontSrc + 'svg#league_spartanbold') format('svg')
 
-html, body
-  background-color: $background
-  font-size: 100%
+// Page
+
+html
   margin: 0
   height: 100%
+  background-color: $background
+  font-size: 100%
+
+// Footer
+
+%footer-base
+  font-family: $font
+  font-size: .6rem
+
+.footer
+  @extend %footer-base
+
+  opacity: .8
+  width: 100%
+  position: absolute
+  bottom: 0
+  padding: 1%
+  background-color: transparent
+  color: $white
+
+.github-link
+  @extend %footer-base
+
+  color: $secondary
+
+// Components
+
+@import nav, content, report

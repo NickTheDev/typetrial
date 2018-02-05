@@ -1,2 +1,2 @@
 # typetrial
-Measure your typing skills in a sleek and modern one minute exam app.
+Measure your touch and keyboard typing skills in a sleek and responsive two minute exam web app.

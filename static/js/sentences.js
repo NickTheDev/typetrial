@@ -1,5 +1,5 @@
 /**
- * Sentences will be continually added and storing them in the other file would make it massive.
+ * Sentences used in the typing exam. These are stored in a separate file due to the sheer amount of sentences that will be stored.
  *
  * @type {string[]}
  */
@@ -20,4 +20,4 @@ sentences = ["The quick brown fox jumped over the lazy dog.",
             "Joel's favorite fruits include apples, bananas, and kiwis.",
             "Typing is a rare and important skill.",
             "How fast are you with pesky symbols? !@% ^%#",
-            "How fast are you with other pesky symbols? ]){"];
+            "How fast are you with other pesky symbols? ])*"];
