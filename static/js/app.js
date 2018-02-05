@@ -21,6 +21,7 @@ const data = {
  */
 const elements = {
     remaining: Binding.create(data.timer, "remaining"),
+    remainingMobile: Binding.create(data.timer, "remaining-mobile"),
     speed: Binding.create(0, "speed"),
     typos: Binding.create(0, "typos"),
     sentence: Binding.create(sentences[0], "sentence"),
@@ -44,6 +45,8 @@ const callbacks = {
             highlight();
 
             const task = setInterval(() => {
+                elements.remainingMobile.value--;
+
                 if(--elements.remaining.value === 0) {
                     clearInterval(task);
 
@@ -62,6 +65,7 @@ const callbacks = {
                     elements.closeReport.onclick = callbacks.reportClose;
 
                     elements.remaining.value = data.timer;
+                    elements.remainingMobile.value = data.timer;
                     elements.speed.value = 0;
                     elements.typos.value = 0;
 
