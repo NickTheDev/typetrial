@@ -9,7 +9,7 @@ html {
   font-size: 100%; }
 
 .footer, .github-link {
-  font-family: League Spartan, sans-serif;
+  font-family: League Spartan, Segoe UI, Helvetica, sans-serif;
   font-size: 0.6rem; }
 
 .footer {
@@ -35,7 +35,7 @@ html {
   margin-left: 4%; }
 
 .navbar-item, .nav-data {
-  font-family: League Spartan, sans-serif;
+  font-family: League Spartan, Segoe UI, Helvetica, sans-serif;
   font-size: 0.9rem; }
 
 .navbar-item {
@@ -44,8 +44,13 @@ html {
 .nav-data {
   color: #00FFD4; }
 
+.nav-right {
+  position: absolute;
+  right: 1%;
+  margin-top: 1.7%; }
+
 .sentence-prompt, .sentence-error, #sentence {
-  font-family: League Spartan, sans-serif;
+  font-family: League Spartan, Segoe UI, Helvetica, sans-serif;
   font-size: 1.3rem; }
 
 .sentence-prompt {
@@ -63,7 +68,7 @@ html {
   width: 45%; }
 
 .typing {
-  font-family: League Spartan, sans-serif;
+  font-family: League Spartan, Segoe UI, Helvetica, sans-serif;
   filter: drop-shadow(5px 5px 4px #4444dd);
   border: none;
   background-color: #FFFFFF;
@@ -71,10 +76,10 @@ html {
   padding: 30px;
   border-radius: 8px; }
 
-.report-card {
+.card {
   padding: 30px;
   border-radius: 8px;
-  font-family: League Spartan, sans-serif; }
+  font-family: League Spartan, Segoe UI, Helvetica, sans-serif; }
 
 .slow-typing {
   color: #FF899C; }

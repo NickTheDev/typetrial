@@ -1,13 +1,13 @@
 // Color palate
 
-$white: #FFFFFF
-$background: #4600FF
+$primary: #FFFFFF
 $secondary: #00FFD4
+$background: #4600FF
 $error: #FF899C
 
 // Typography
 
-$font: League Spartan, sans-serif
+$font: League Spartan, Segoe UI, Helvetica, sans-serif
 $fontSrc: '../fonts/leaguespartan-bold.'
 
 @font-face
@@ -38,7 +38,7 @@ html
   bottom: 0
   padding: 1%
   background-color: transparent
-  color: $white
+  color: $primary
 
 .github-link
   @extend %footer-base
@@ -47,4 +47,4 @@ html
 
 // Components
 
-@import nav, content, report
+@import components/nav, components/content, components/report

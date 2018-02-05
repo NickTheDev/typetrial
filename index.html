@@ -3,8 +3,8 @@
   <head>
     <!-- Metadata -->
 
-    <title>Type Trial</title>
-    <meta name="author" content="width=device-width, initial-scale=1">
+    <title>Typetrial</title>
+    <meta name="author" content="NickTheDev">
     <meta name="description" content="Measure your touch and keyboard typing skills in a sleek and responsive two minute exam web app.">
     <meta name="keywords" content="typetrial,typing test,typingtest,typing speed,type trial,wpm">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +29,7 @@
     <nav class="navbar" role="navigation">
       <div class="navbar-brand">
         <a href="https://nickthedev.github.io/typetrial/" class="navbar-item">typetrial</a>
-        <div class="navbar-item is-hidden-desktop">
+        <div class="nav-right navbar-item is-hidden-desktop">
           <a id="remaining-mobile" class="nav-data">120</a>&nbsp;seconds left
         </div>
       </div>
@@ -59,7 +59,7 @@
         </div>
         <div class="field">
           <div class="control container input-container">
-            <input id="typing" class="input typing" type="text" placeholder="Start typing to begin...">
+            <input id="typing" class="input typing" type="text" placeholder="Start...">
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@
 
     <div id="report" class="modal">
       <div class="modal-background"></div>
-      <div class="card report-card">
+      <div class="card">
         <div class="card-content">
           <div class="content">
             <h1 id="report-stats">0 wpm with 0 typos.</h1>
@@ -77,7 +77,7 @@
           </div>
         </div>
       </div>
-      <button id="report-close" class="modal-close is-large" aria-label="close"></button>
+      <button id="report-close" class="modal-close is-large"></button>
     </div>
 
     <!-- Footer -->

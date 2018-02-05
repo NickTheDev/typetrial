@@ -1,11 +1,9 @@
-"use strict";
-
 /**
  * Represents the the data used store the exam state.
  *
  * @type {{timer: number, started: boolean, chars: number, typoChars: number, current: number, currentWord: number, typedKey: string, typedWord: string, typoIndexes: Array}}
  */
-var data = {
+const data = {
     timer: 120,
     started: false,
     chars: 0,
@@ -22,7 +20,7 @@ var data = {
  *
  * @type {{remaining: Binding, speed: Binding, typos: Binding, sentence: Binding, typing: Binding, stats: Binding, report: HTMLElement | null, closeReport: HTMLElement | null}}
  */
-var elements = {
+const elements = {
     remaining: Binding.of("remaining", data.timer),
     remainingMobile: Binding.of("remaining-mobile", data.timer),
     speed: Binding.of("speed", 0),
@@ -40,21 +38,21 @@ var elements = {
  *
  * @type {{start: function(), type: function(*), exitReport: function()}}
  */
-var callbacks = {
+const callbacks = {
 
     /**
      * Starts the exam when the input box is first typed in.
      */
-    start: function start() {
-        if (!data.started) {
+    start() {
+        if(!data.started) {
             data.started = true;
 
             utils.highlight();
 
-            var task = setInterval(function () {
+            const task = setInterval(() => {
                 elements.remainingMobile.value--;
 
-                if (--elements.remaining.value === 0) {
+                if(--elements.remaining.value === 0) {
                     clearInterval(task);
 
                     data.started = false;
@@ -75,25 +73,28 @@ var callbacks = {
                     elements.remainingMobile.value = data.timer;
                     elements.speed.value = 0;
                     elements.typos.value = 0;
-                } else {
-                    elements.speed.value = Math.round((data.chars - data.typoChars) / 5 * data.timer / (data.timer - elements.remaining.value));
-                }
-            }, 1000);
-        }
-    },
 
+                } else {
+                    elements.speed.value = Math.round((data.chars - data.typoChars) / 5 * data.timer / (data.timer - elements.remaining.value))
+                }
+
+            }, 1000)
+
+        }
+
+    },
 
     /**
      * Updates the exam as a character is typed.
      *
      * @param {KeyboardEvent} event Type event.
      */
-    type: function type(event) {
-        if (event.key === " ") {
-            if (data.typedKey !== " ") {
-                var words = sentences[data.current].split(" ");
+    type(event) {
+        if(event.key === " ") {
+            if(data.typedKey !== " ") {
+                const words = sentences[data.current].split(" ");
 
-                if (words[data.currentWord] !== data.typedWord) {
+                if(words[data.currentWord] !== data.typedWord) {
                     data.typoIndexes.push(data.currentWord);
                     data.typoChars += words[data.currentWord].length;
                     elements.typos.value++;
@@ -101,16 +102,18 @@ var callbacks = {
 
                 data.typedWord = "";
 
-                if (++data.currentWord === words.length) {
+                if(++data.currentWord === words.length) {
                     utils.changeSentence();
 
                     data.typoIndexes = [];
                     data.currentWord = 0;
                     data.typedWord = "";
                 }
+
             }
+
         } else {
-            if (data.typedWord.length === 0) {
+            if(data.typedWord.length === 0) {
                 utils.highlight();
             }
 
@@ -121,14 +124,14 @@ var callbacks = {
         data.typedKey = event.key;
     },
 
-
     /**
      * Exits the report modal.
      */
-    exitReport: function exitReport() {
+    exitReport() {
         elements.report.classList.remove("is-active");
         elements.typing.target.disabled = false;
     }
+
 };
 
 /**
@@ -136,32 +139,32 @@ var callbacks = {
  *
  * @type {{highlight: function(), changeSentence: function()}}
  */
-var utils = {
+const utils = {
 
     /**
      * Highlights the current word being typed in the exam.
      */
-    highlight: function highlight() {
-        var words = sentences[data.current].split(" ");
+    highlight() {
+        const words = sentences[data.current].split(" ");
 
-        words.forEach(function (value, index) {
-            if (data.typoIndexes.includes(index)) {
-                words[index] = "<a class=\"sentence-error\">" + words[index] + "</a> ";
+        words.forEach((value, index) => {
+            if(data.typoIndexes.includes(index)) {
+                words[index] = "<a class=\"sentence-error\">" + words[index] + "</a> "
             }
+
         });
 
         // Insecure, need to find a work around.
         elements.sentence.target.innerHTML = words.slice(0, data.currentWord).join(" ") + " <a class=\"sentence-prompt\">" + words[data.currentWord] + "</a> " + words.slice(data.currentWord + 1, words.length).join(" ");
     },
 
-
     /**
      * Changes the sentence to different one randomly.
      *
      * @returns {number} Sentence index.
      */
-    changeSentence: function changeSentence() {
-        var possible = Math.floor(Math.random() * Math.floor(sentences.length - 1));
+    changeSentence() {
+        const possible =  Math.floor(Math.random() * (Math.floor(sentences.length - 1)));
 
         data.current = possible !== data.current ? possible : utils.changeSentence();
         elements.sentence.value = sentences[possible];
@@ -169,7 +172,9 @@ var utils = {
 
         return possible;
     }
+
 };
+
 
 elements.typing.target.onkeydown = callbacks.start;
 elements.typing.target.onkeypress = callbacks.type;

@@ -1,0 +1,23 @@
+{
+  "name": "typetrial",
+  "version": "1.0.0",
+  "description": "A sleek and responsive two minute typing test app.",
+  "scripts": {
+    "babel": "babel src --out-dir static/js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NickTheDev/typetrial.git"
+  },
+  "author": "NickTheDev",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/NickTheDev/typetrial/issues"
+  },
+  "homepage": "https://github.com/NickTheDev/typetrial#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  }
+}
