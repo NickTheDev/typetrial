@@ -1,29 +1,34 @@
-.content
+.middle
   margin-top: 10%
 
-%header-base
+%sentence-base
   font-family: $font
   font-size: 1.3rem
 
 .type-prompt
-  @extend %header-base
+  @extend %sentence-base
 
   color: $secondary
 
+.sentence-error
+  @extend %sentence-base
+
+  color: $error
+
 #sentence
-  @extend %header-base
+  @extend %sentence-base
 
   color: $white
   padding-left: 25px
 
 .input-container
-  width: 500px
+  width: 45%
 
 .typing
   font-family: $font
   filter: drop-shadow(5px 5px 4px #4444dd)
   border: none
   background-color: $white
-  margin: 20px 0 0
+  margin: 2% 0 0
   padding: 30px
   border-radius: 8px

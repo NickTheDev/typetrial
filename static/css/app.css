@@ -1,12 +1,12 @@
 .navbar {
-  margin-top: 20px;
+  margin-top: 1.7%;
   background-color: transparent; }
 
 .navbar-menu {
-  margin-right: 60px; }
+  margin-right: 4%; }
 
 .navbar-brand {
-  margin-left: 60px; }
+  margin-left: 4%; }
 
 .navbar-item, .nav-data {
   font-family: League Spartan, sans-serif;
@@ -18,31 +18,45 @@
 .nav-data {
   color: #00FFD4; }
 
-.content {
+.middle {
   margin-top: 10%; }
 
-.type-prompt, #sentence {
+.type-prompt, .sentence-error, #sentence {
   font-family: League Spartan, sans-serif;
   font-size: 1.3rem; }
 
 .type-prompt {
   color: #00FFD4; }
 
+.sentence-error {
+  color: #FF899C; }
+
 #sentence {
   color: #FFFFFF;
   padding-left: 25px; }
 
 .input-container {
-  width: 500px; }
+  width: 45%; }
 
 .typing {
   font-family: League Spartan, sans-serif;
   filter: drop-shadow(5px 5px 4px #4444dd);
   border: none;
   background-color: #FFFFFF;
-  margin: 20px 0 0;
+  margin: 2% 0 0;
   padding: 30px;
   border-radius: 8px; }
+
+.report-card {
+  padding: 30px;
+  border-radius: 8px;
+  font-family: League Spartan, sans-serif; }
+
+.slow-typing {
+  color: #FF899C; }
+
+.fast-typing {
+  color: #00FFD4; }
 
 @font-face {
   font-family: League Spartan, sans-serif;

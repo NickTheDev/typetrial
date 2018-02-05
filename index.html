@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css"/>
     <link rel="stylesheet" href="static/css/app.css"/>
     <script defer type="text/javascript" src="static/js/binding.js"></script>
+    <script defer type="text/javascript" src="static/js/sentences.js"></script>
     <script defer type="text/javascript" src="static/js/app.js"></script>
 
   </head>
@@ -40,10 +41,12 @@
       </div>
     </nav>
 
-    <section class="section content">
+    <section class="section middle">
       <div class="container">
-        <div class="type-prompt level level-item">
-          Type:<a id="sentence">The quick brown fox jumped over the lazy dog.</a>
+        <div class="type-prompt level">
+          <div class="level-item">
+            Type:<a id="sentence">The quick brown fox jumped over the lazy dog.</a>
+          </div>
         </div>
 
         <div class="field">
@@ -56,16 +59,17 @@
 
     <div id="report" class="modal">
       <div class="modal-background"></div>
-      <div class="modal-card">
-        <header class="modal-card-head">
-          <p class="modal-card-title">Modal title</p>
-          <button id="close-report" class="delete"></button>
-        </header>
 
-        <section class="modal-card-body">
-          <!-- Content ... -->
-        </section>
+      <div class="card report-card">
+        <div class="card-content">
+          <div class="content">
+            <h1 id="report-stats">0 wpm with 0 typos.</h1>
+            <p>The average person can type around <a class="slow-typing">30-50</a> wpm while pros can type around <a class="fast-typing">70-90</a> wpm.</p>
+          </div>
+        </div>
       </div>
+
+      <button id="report-close" class="modal-close is-large" aria-label="close"></button>
     </div>
 
   </body>
