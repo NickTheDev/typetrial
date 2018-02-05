@@ -60,7 +60,7 @@
 
 @font-face {
   font-family: League Spartan, sans-serif;
-  src: url(../fonts/leaguespartan-bold.ttf); }
+  src: url("../fonts/leaguespartan-bold.ttf"); }
 html, body {
   background-color: #4600FF;
   font-size: 100%;

@@ -1,2 +1,2 @@
 # typetrial
-Sleek and modern typing test app.
+Measure your typing skills in a sleek and modern one minute exam app.
