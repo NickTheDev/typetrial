@@ -10,12 +10,16 @@ class Binding {
      * Creates a new binding with the specified value and target.
      *
      * @param {Object} value Initial value of this binding.
-     * @param {HTMLElement} target Element to bind to.
+     * @param {String} target Element to bind to.
      */
     constructor(value, target) {
         this._data = value;
-        this.target = target;
-        this.value = value;
+
+        document.addEventListener("DOMContentLoaded", () => {
+            this.target = document.getElementById(target);
+            this.value = value;
+        });
+
     }
 
     /**
@@ -52,7 +56,7 @@ class Binding {
      * @returns {Binding} New binding.
      */
     static of(id, value = "") {
-        return new Binding(value, document.getElementById(id));
+        return new Binding(value, id);
     }
 
 }

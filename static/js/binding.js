@@ -16,14 +16,19 @@ var Binding = function () {
      * Creates a new binding with the specified value and target.
      *
      * @param {Object} value Initial value of this binding.
-     * @param {HTMLElement} target Element to bind to.
+     * @param {String} target Element to bind to.
      */
     function Binding(value, target) {
+        var _this = this;
+
         _classCallCheck(this, Binding);
 
         this._data = value;
-        this.target = target;
-        this.value = value;
+
+        document.addEventListener("DOMContentLoaded", function () {
+            _this.target = document.getElementById(target);
+            _this.value = value;
+        });
     }
 
     /**
@@ -68,7 +73,7 @@ var Binding = function () {
         value: function of(id) {
             var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
 
-            return new Binding(value, document.getElementById(id));
+            return new Binding(value, id);
         }
     }]);
 

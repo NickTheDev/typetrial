@@ -68,8 +68,11 @@ var callbacks = {
                     elements.typing.target.disabled = true;
 
                     elements.report.classList.add("is-active");
-                    elements.stats.value = elements.speed.value + " wpm with " + elements.typos.value + " typos.";
+                    elements.stats.value = elements.speed.value + " wpm with " + elements.typos.value + " typos, " + (100 - Math.round(data.typoChars * 100 / data.chars)) + "% accuracy.";
                     elements.closeReport.onclick = callbacks.exitReport;
+
+                    data.chars = 0;
+                    data.typoChars = 0;
 
                     elements.remaining.value = data.timer;
                     elements.remainingMobile.value = data.timer;
@@ -171,5 +174,7 @@ var utils = {
     }
 };
 
-elements.typing.target.onkeydown = callbacks.start;
-elements.typing.target.onkeypress = callbacks.type;
+document.addEventListener("DOMContentLoaded", function () {
+    elements.typing.target.onkeydown = callbacks.start;
+    elements.typing.target.onkeypress = callbacks.type;
+});
